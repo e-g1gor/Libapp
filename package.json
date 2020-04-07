@@ -1,0 +1,19 @@
+{
+  "name": "libapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Egor Klenin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.4",
+    "eslint": "^6.8.0"
+  }
+}
