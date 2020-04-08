@@ -13,6 +13,7 @@ module.exports = {
    * @param {Express.Response} res 
    */
   getBooks(req, res) {
+    res.send('books api test')
     // get all books
   }
 }
