@@ -9,5 +9,7 @@ const router = express.Router()
 
 /** Get all books */
 router.get('/', controller.getBooks)
+/** Add book*/
+router.get('/lang/:lang', controller.getByLang)
 
 module.exports = router
