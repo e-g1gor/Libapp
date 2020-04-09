@@ -14,6 +14,11 @@ const SQL = {
     `
 }
 
-module.exports = class Books extends DAO {
+module.exports = class Books {
+  
+  getBooks() {
+    console.log('controller')
+    return dao.connection.promise().query('SELECT 2')
+  }
 
 }

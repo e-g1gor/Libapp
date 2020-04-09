@@ -4,14 +4,18 @@ const PORT = 3000
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const path = require('path')
 const app = express()
 
 
 
 /** Initialize DAO */
 const DAO = require('./dao/dao')
-const dao = new DAO()
+const dao = new DAO({
+  host:'localhost',
+  database: 'mydb',
+  user: 'root',
+  password: 'password'
+})
 
 
 

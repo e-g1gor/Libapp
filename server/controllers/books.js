@@ -4,7 +4,11 @@
 
 /** Import dao */
 const Books = require('../dao/books')
+const books = new Books()
 
+const SQL = {
+  all: 'SELECT * from books'
+}
 
 /** Controllers */
 module.exports = {
@@ -13,7 +17,11 @@ module.exports = {
    * @param {Express.Response} res 
    */
   getBooks(req, res) {
-    res.send('books api test')
+    
+    books.getBooks()
+    .then( ([rows,fields]) => {
+      res.send(rows)
+    })
     // get all books
   }
 }
