@@ -34,9 +34,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mydb`.`languages` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`languages` (
-  `idlanguages` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `lang` VARCHAR(8) NOT NULL,
-  PRIMARY KEY (`idlanguages`))
+  `idlanguages` VARCHAR(2) NOT NULL,
+  `lang` VARCHAR(32) NOT NULL,
+  PRIMARY KEY (`idlanguages`),
+  UNIQUE INDEX `idlanguages_UNIQUE` (`idlanguages` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -48,12 +49,12 @@ DROP TABLE IF EXISTS `mydb`.`i18n` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`i18n` (
   `idi18n` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `bookid` INT UNSIGNED NOT NULL,
-  `langid` INT UNSIGNED NOT NULL,
+  `langid` VARCHAR(2) NOT NULL,
   `name` VARCHAR(512) NOT NULL,
   PRIMARY KEY (`idi18n`),
   UNIQUE INDEX `idi18n_UNIQUE` (`idi18n` ASC) VISIBLE,
-  INDEX `book_idx` (`bookid` ASC) VISIBLE,
   INDEX `lang_idx` (`langid` ASC) VISIBLE,
+  INDEX `book_idx` (`bookid` ASC) VISIBLE,
   CONSTRAINT `book`
     FOREIGN KEY (`bookid`)
     REFERENCES `mydb`.`books` (`idbooks`)
@@ -66,7 +67,3 @@ CREATE TABLE IF NOT EXISTS `mydb`.`i18n` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
