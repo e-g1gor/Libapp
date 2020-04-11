@@ -22,9 +22,18 @@ module.exports = class DAO {
   /**
    * Run SQL query
    * @param {string|string[]} sql SQL query to perform
-   * @returns {mysql.} established database conection
+   * @returns {Promise} Promise returning query resuls
    */
   static query() {
-      return connection.promise().query(...arguments)
+    return connection.promise().query(...arguments)
+  }
+
+  /**
+   * Run SQL query synchronously
+   * @param {string|string[]} sql SQL query to perform
+   * @returns {mysql.} Query result
+   */
+  static querySync() {
+    return connection.query(...arguments)
   }
 }

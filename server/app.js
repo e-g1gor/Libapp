@@ -14,7 +14,8 @@ const dao = new DAO({
   host:'localhost',
   database: 'mydb',
   user: 'root',
-  password: 'password'
+  password: 'password',
+  multipleStatements: true
 })
 
 
