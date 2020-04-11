@@ -6,11 +6,11 @@ html
   body
     //- form(action="/books" method='post')
     //-   input(type='text' placeholder='Select language')
-    p
-      a(href='/books') all
-    p
-      a(href='/books/lang/pl') pl
-    p
-      a(href='/books/lang/ru') ru
-    p
-      a(href='/books/lang/by') by
+    
+    div#output
+
+    select#selectlang
+      option(value='all') All books
+      option(value='pl') Polish
+      option(value='by') Беларуская
+      option(value='ru') Русский
