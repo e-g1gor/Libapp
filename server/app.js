@@ -13,7 +13,7 @@ const DAO = require('./dao/dao')
 const dao = new DAO({
   host:'localhost',
   database: 'mydb',
-  user: 'root',
+  user: 'app',
   password: 'password',
   multipleStatements: true
 })
