@@ -8,7 +8,11 @@ function render(data, error) {
     return
   }
   let output = document.getElementById('output')
-  let rez = `<table>${new Array(...data).map(x => "<tr><td>" + x.name + "</td></tr>").join("\n")}<table>`
+  let rez
+  if (typeof data === 'string')
+    rez = data
+  else
+    rez = `<table>${new Array(...data).map(x => "<tr><td>" + x.name + "</td></tr>").join("\n")}<table>`
   output.innerHTML = rez
 
 }
