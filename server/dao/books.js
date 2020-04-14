@@ -10,12 +10,11 @@ const SQL = {
 
   getByLang(lang) {
     return [`
-    SELECT idbooks AS id, name FROM books 
-    WHERE idbooks NOT IN (SELECT id from (SELECT bookid AS id, name FROM i18n AS test WHERE langid = ?) AS localized)
-    UNION ALL
-    (SELECT bookid AS id, name FROM i18n WHERE langid = ?)
-    ORDER BY id;
-    `,[lang,lang]]
+    SELECT b.idbooks as id, IFNULL(i.name,b.name) as name
+    FROM books b 
+    left join i18n i
+    on i.bookid=b.idbooks AND langid=?;
+    `,[lang]]
   }
 }
 
